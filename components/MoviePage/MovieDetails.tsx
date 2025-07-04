@@ -15,16 +15,17 @@ const MovieDetails = ({ movie }: MovieProps) => {
                     <h1 className="text-3xl font-bold mr-2 drop-shadow-lg">{movie.title}</h1>
                     <span className="text-lg font-semibold text-gray-300">{getReleaseYear(movie)}</span>
                 </div>
-                {movie.tagline && <span className="italic">{movie.tagline}</span>}
-                <div className="flex items-center mt-2 mb-2">
-                    <span className="text-base mr-1">directed by</span>
-                    <span className="text-base font-bold">{getDirectors(movie)}</span>
+                <div className="flex items-center mt-2 mb-6">
+                    <span className="text-base mr-1 text-gray-400">directed by</span>
+                    <span className="text-base font-bold ">{getDirectors(movie)}</span>
                 </div>
-                <div className="flex items-center mb-2">
+                {/* <div className="flex items-center mb-2">
                     <span className="text-base mr-2"> {getFormattedRuntime(movie.runtime)}</span>
                     <span className="text-base mr-2"> • ⭐ {getFormattedAverage(movie.vote_average)}</span>
-                </div>
-                <p className="text-base text-gray-200 line-clamp-4 drop-shadow-lg">{movie.overview}</p>
+                </div> */}
+                {/*TODO: Figure out new place to show them*/}
+                {movie.tagline && <span className="italic text-gray-400" style={{ fontFamily: 'Georgia, serif' }}>{movie.tagline}</span>}
+                <p className="text-base text-gray-200 line-clamp-4 drop-shadow-lg" style={{ fontFamily: 'Georgia, serif' }}>{movie.overview}</p>
             </div>
         </div>
     )
