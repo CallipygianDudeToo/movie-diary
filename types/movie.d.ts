@@ -21,6 +21,24 @@ type Movie = {
     iso_639_1: string;
     name: string;
   }>;
+  credits: {
+    cast: Array<{
+      id: number;
+      name: string;
+      character: string;
+      profile_path: string | null;
+      order: number;
+    }>;
+    crew: Array<{
+      id: number;
+      name: string;
+      department: string;
+      job: string;
+      profile_path: string | null;
+    }>;
+  }
+  backdrop_path: string | null;
+  tagline: string;
 };
 
 export type { Movie };

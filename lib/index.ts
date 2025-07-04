@@ -1,3 +1,5 @@
 import { fetchMovieById } from "./tmdb";
 
-export { fetchMovieById };
+export { 
+    fetchMovieById,
+};
