@@ -1,9 +1,11 @@
 import Navbar from "./Navbar";
 import ErrorPage from "./ErrorPage";
-import MovieDetails from "./MoviePage/MoviePage";
+import MoviePage from "./MoviePage/MoviePage";
+import PersonalityPage from "./PersonalityPage/PersonalityPage";
 
 export {
     Navbar,
     ErrorPage,
-    MovieDetails,
-}
+    MoviePage,
+    PersonalityPage,
+};

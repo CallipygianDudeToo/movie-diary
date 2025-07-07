@@ -3,8 +3,6 @@ import { Movie } from "@/types";
 export const getDirectors = (movie: Movie) => {
     return movie.credits.crew
         .filter(member => member.job === 'Director')
-        .map(director => director.name)
-        .join(', ');
 };
 
 export const getReleaseYear = (movie: Movie) => {
@@ -22,4 +20,4 @@ export const getFormattedAverage = (rating: number) => {
         return "No ratings available";
     }    
     return rating.toFixed(2);
-}
+};
