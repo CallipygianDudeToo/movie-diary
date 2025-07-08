@@ -16,7 +16,7 @@ const Backdrop = ({ movie }: MovieProps) => {
                     <img
                         src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
                         alt={movie.title}
-                        className="w-auto h-auto self-center object-contain z-0 mask-fade-left mask-fade-right"
+                        className="w-auto h-auto self-center object-contain z-0 mask-fade-left"
                     />
                 </div>
             </div>

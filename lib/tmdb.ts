@@ -18,7 +18,7 @@ export async function fetchMovieById(id: string) : Promise<Movie> {
 }
 
 export async function fetchPersonalityById(id: string) : Promise<Personality> {
-  const res = await fetch(`https://api.themoviedb.org/3/person/${id}`, {
+  const res = await fetch(`https://api.themoviedb.org/3/person/${id}?append_to_response=combined_credits`, {
     method: 'GET',
     headers: {
       accept: 'application/json',
