@@ -54,3 +54,16 @@ body {
     mask-image: linear-gradient(to right, black 80%, transparent 100%);
   }
 }
+
+/* Custom scrollbar for biography section */
+.profile-bio-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background: #101828;
+}
+.profile-bio-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.profile-bio-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,25 +1,25 @@
 import { Personality } from "@/types";
 
-interface popularityData {
+interface PopularityData {
     count: number;
     popularitySum: number;
 };
 
-interface movieData {
+export interface MovieData {
     id: number;
     title: string;
-    popularityDetails: popularityData;
+    popularityDetails: PopularityData;
     poster_path: string | null;
     job: string | null;
 };
 
-const effectivePopularity = (data: popularityData | undefined): number => {
+const effectivePopularity = (data: PopularityData | undefined): number => {
     if (!data || data.count === 0) return 0;
     return Number((data.popularitySum * data.count).toFixed(2));
 };
 
 export const getKnownForJobs = (personality: Personality) => {
-    const jobs = new Map<string, popularityData>();
+    const jobs = new Map<string, PopularityData>();
     if (personality.combined_credits.cast.length > 0) {
         personality.combined_credits.cast.forEach(role => {
             if(!role.title) return; 
@@ -46,7 +46,7 @@ export const getKnownForJobs = (personality: Personality) => {
 };
 
 export const getSetOfMovies = (personality: Personality) => {
-    const moviePopularities = new Map<number, movieData>();
+    const moviePopularities = new Map<number, MovieData>();
     
     if (personality.combined_credits.cast.length > 0) {
         personality.combined_credits.cast.forEach(role => {
