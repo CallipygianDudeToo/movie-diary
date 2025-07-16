@@ -10,7 +10,7 @@ export interface MovieData {
     title: string;
     popularityDetails: PopularityData;
     poster_path: string | null;
-    job: string | null;
+    jobs: Set<string>;
 };
 
 const effectivePopularity = (data: PopularityData | undefined): number => {
@@ -52,7 +52,7 @@ export const getSetOfMovies = (personality: Personality) => {
         personality.combined_credits.cast.forEach(role => {
             if (!role.title) return;
 
-            let newValue = moviePopularities.get(role.id) || {id: role.id, title: role.title, poster_path: role.poster_path, popularityDetails:{ count: 0, popularitySum: 0 }, job: 'Acting'};
+            let newValue = moviePopularities.get(role.id) || {id: role.id, title: role.title, poster_path: role.poster_path, popularityDetails:{ count: 0, popularitySum: 0 }, jobs: new Set<string>(['Acting'])};
             newValue.popularityDetails.count += 1;
             newValue.popularityDetails.popularitySum += role.popularity;
             moviePopularities.set(role.id, newValue);
@@ -61,9 +61,10 @@ export const getSetOfMovies = (personality: Personality) => {
     if (personality.combined_credits.crew.length > 0) {
         personality.combined_credits.crew.forEach(credit => {
             if (credit.title && credit.job) {
-                let newValue = moviePopularities.get(credit.id) || {id: credit.id, title: credit.title, poster_path: credit.poster_path, popularityDetails:{ count: 0, popularitySum: 0 }, job: credit.job};
+                let newValue = moviePopularities.get(credit.id) || {id: credit.id, title: credit.title, poster_path: credit.poster_path, popularityDetails:{ count: 0, popularitySum: 0 }, jobs: new Set<string>([credit.job])};
                 newValue.popularityDetails.count += 1;
                 newValue.popularityDetails.popularitySum += credit.popularity;
+                newValue.jobs.add(credit.job);
                 moviePopularities.set(credit.id, newValue);
             }
         });

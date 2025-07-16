@@ -1,13 +1,12 @@
 import React from 'react';
-import { PersonalityProps } from './PersonalityProps';
-import { getKnownForJobs } from './helper';
+import { PersonalityProps, PersonalityWithFilterJobsProps, PersonalityWithFilterProps } from './PersonalityProps';
 
-const Profile = ({ personality }: PersonalityProps) => {
+const Profile = ({ personality, filterOnJob, setFilterOnJob, jobs }: PersonalityWithFilterJobsProps) => {
     return (
         <div className="relative h-auto w-full flex flex-row justify-center rounded-lg">
             <ProfileBiography personality={personality} />
-            <ProfileImage personality={personality} />
-            <ProfileKnownFor personality={personality} />
+            <ProfileImage personality={personality} filterOnJob={filterOnJob} setFilterOnJob={setFilterOnJob}/>
+            <ProfileKnownFor personality={personality} filterOnJob={filterOnJob} setFilterOnJob={setFilterOnJob} jobs={jobs}/>
         </div>
     )
 };
@@ -22,7 +21,7 @@ const ProfileBiography = ({ personality }: PersonalityProps) => {
     );
 };
 
-const ProfileImage = ({ personality }: PersonalityProps) => {
+const ProfileImage = ({ personality, filterOnJob }: PersonalityWithFilterProps) => {
     return (
         <div className='w-1/3 flex flex-col items-center justify-center mask-fade-top'>
             <div className='mask-light-fade-left'>
@@ -36,21 +35,23 @@ const ProfileImage = ({ personality }: PersonalityProps) => {
             </div>
             <div className='flex flex-col items-center'>
                 <h1 className="text-2xl font-bold -mt-8">{personality.name}</h1>
-                <h1 className="text-xl">{personality.known_for_department}</h1>
+                <h1 className="text-xl">{filterOnJob}</h1>
             </div>
         </div>
     );
 };
 
-const ProfileKnownFor = ({ personality }: PersonalityProps) => {
-    const jobs = getKnownForJobs(personality) ?? [];
-    
+const ProfileKnownFor = ({ personality, filterOnJob, setFilterOnJob, jobs }: PersonalityWithFilterJobsProps) => {
+    if (!filterOnJob) {
+        setFilterOnJob(jobs[0]);
+    }
+
     return (
         <div className='w-1/3 flex flex-col items-center mt-16' style={{ fontFamily: 'Georgia, serif' }}>
-            <h1 className='font-bold text-xl mb-3'>Known For</h1>
+            <h1 className='font-bold text-xl mb-3'>Filter On:</h1>
             {jobs.map(job => {
                 return (
-                    <button key={job} className="text-base hover:text-blue-400">
+                    <button key={job} className="text-base hover:text-blue-400" onClick={() => setFilterOnJob(job)}>
                         {job}
                     </button>
                 );
