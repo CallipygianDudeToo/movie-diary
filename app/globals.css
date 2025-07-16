@@ -65,5 +65,8 @@ body {
   border-radius: 4px;
 }
 .profile-bio-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #666;
+}
+.profile-bio-scrollbar::-webkit-scrollbar-thumb:active {
+  background: #444;
 }
