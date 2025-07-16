@@ -10,13 +10,13 @@ const Backdrop = ({ movie }: MovieProps) => {
     }
     
     return (
-        <div className="relative w-full h-[30rem] flex items-center justify-center overflow-hidden mask-fade-bottom">
+        <div className="relative w-full h-[30rem] flex items-center justify-center mask-fade-bottom">
             <div className='mask-fade-top'>
                 <div className='mask-fade-right'>
                     <img
                         src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
                         alt={movie.title}
-                        className="w-auto h-auto self-center object-contain z-0 mask-fade-left"
+                        className="h-[42rem] w-auto self-center object-contain z-0 mask-fade-left"
                     />
                 </div>
             </div>
