@@ -12,9 +12,12 @@ const Directors = ({ movie }: MovieProps) => {
         <>
             {directors.map((director, idx) => (
                 <React.Fragment key={director.id}>
-                    <button 
+                    <button
                         className="text-base font-bold hover:text-green-400"
-                        onClick={() => router.push(`/personality/${director.id}`)}
+                        onClick={() => {
+                            router.push(`/personality/${director.id}`)
+                            window.sessionStorage.setItem(`personality`, JSON.stringify({ id: director.id, job: 'Director' }));
+                        }}
                     >
                         {director.name}
                     </button>

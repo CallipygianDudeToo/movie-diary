@@ -19,10 +19,13 @@ const NameCard = ({ name, character, id, job }: NameCardProps) => {
                 style={{
                     backgroundColor: 'rgb(40,48,56)',
                 }}
-                onClick={() => router.push(`/personality/${id}`)}
+                onClick={() => {
+                    router.push(`/personality/${id}`)
+                    window.sessionStorage.setItem(`personality`, JSON.stringify({ id, job }));
+                }}
             >
                 {name}
-                
+
                 {character && <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 w-max max-w-xs px-2 py-1 rounded bg-zinc-900 text-zinc-100 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none z-10">
                     {character}
                 </div>}
