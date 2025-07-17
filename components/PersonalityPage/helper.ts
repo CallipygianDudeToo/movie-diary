@@ -1,6 +1,5 @@
 import { Personality } from "@/types";
-
-const ACTING = 'Acting';
+import { ACTING } from "../commonHelper";
 
 interface PopularityData {
     count: number;
@@ -63,7 +62,7 @@ export const getSetOfMovies = (personality: Personality) => {
             moviePopularities.set(role.id, newValue);
         });
     }
-    
+
     if (personality.combined_credits.crew.length > 0) {
         personality.combined_credits.crew.forEach(credit => {
             if (credit.title && credit.job) {

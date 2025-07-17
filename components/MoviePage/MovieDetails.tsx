@@ -5,7 +5,7 @@ import Directors from './Directors';
 
 const MovieDetails = ({ movie }: MovieProps) => {
     return (
-        <div className="relative z-20 flex items-top justify-center w-full h-full -mt-20">
+        <div className="relative z-20 flex items-top justify-center px-[20rem] w-full h-full -mt-20">
             <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
