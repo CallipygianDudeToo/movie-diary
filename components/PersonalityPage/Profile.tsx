@@ -41,11 +41,7 @@ const ProfileImage = ({ personality, filterOnJob }: PersonalityWithFilterProps) 
     );
 };
 
-const ProfileKnownFor = ({ personality, filterOnJob, setFilterOnJob, jobs }: PersonalityWithFilterJobsProps) => {
-    if (!filterOnJob) {
-        setFilterOnJob(jobs[0]);
-    }
-
+const ProfileKnownFor = ({ setFilterOnJob, jobs }: PersonalityWithFilterJobsProps) => {
     return (
         <div className='w-1/3 flex flex-col items-center mt-16' style={{ fontFamily: 'Georgia, serif' }}>
             <h1 className='font-bold text-xl mb-3'>Filter On:</h1>

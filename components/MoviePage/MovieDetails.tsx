@@ -5,7 +5,7 @@ import Directors from './Directors';
 
 const MovieDetails = ({ movie }: MovieProps) => {
     return (
-        <div className="relative z-20 flex items-top justify-center w-full h-full -mt-14">
+        <div className="relative z-20 flex items-top justify-center w-full h-full -mt-20">
             <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
@@ -26,7 +26,7 @@ const MovieDetails = ({ movie }: MovieProps) => {
                 </div> */}
                 {/*TODO: Figure out new place to show them*/}
                 {movie.tagline && <span className="italic text-gray-400" style={{ fontFamily: 'Georgia, serif' }}>{movie.tagline}</span>}
-                <p className="text-base text-gray-200 line-clamp-4 drop-shadow-lg" style={{ fontFamily: 'Georgia, serif' }}>{movie.overview}</p>
+                <p className="text-base text-gray-200 drop-shadow-lg" style={{ fontFamily: 'Georgia, serif' }}>{movie.overview}</p>
             </div>
         </div>
     )

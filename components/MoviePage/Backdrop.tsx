@@ -4,13 +4,13 @@ import { MovieProps } from './MovieProps';
 const Backdrop = ({ movie }: MovieProps) => {
     if (!movie.backdrop_path) {
         return (
-            <div className="w-full h-[8rem]">
+            <div className="w-full h-[10rem]">
             </div>
         );
     }
     
     return (
-        <div className="relative w-full h-[30rem] flex items-center justify-center mask-fade-bottom">
+        <div className="relative w-full h-[34rem] flex items-center justify-center mask-fade-bottom">
             <div className='mask-fade-top'>
                 <div className='mask-fade-right'>
                     <img
