@@ -1,5 +1,7 @@
 import { Personality } from "@/types";
 
+const ACTING = 'Acting';
+
 interface PopularityData {
     count: number;
     popularitySum: number;
@@ -22,15 +24,16 @@ export const getKnownForJobs = (personality: Personality) => {
     const jobs = new Map<string, PopularityData>();
     if (personality.combined_credits.cast.length > 0) {
         personality.combined_credits.cast.forEach(role => {
-            if(!role.title) return; 
-            
-            let newValue = jobs.get('Acting') || { count: 0, popularitySum: 0 };
+            if (!role.title) return;
+
+            let newValue = jobs.get(ACTING) || { count: 0, popularitySum: 0 };
             newValue.count += 1;
             newValue.popularitySum += role.popularity;
-            jobs.set('Acting', newValue);
+            jobs.set(ACTING, newValue);
         });
     }
-    if (personality.combined_credits.crew.length > 0) { 
+
+    if (personality.combined_credits.crew.length > 0) {
         personality.combined_credits.crew.forEach(credit => {
             if (credit.title && credit.job) {
                 let newValue = jobs.get(credit.job) || { count: 0, popularitySum: 0 };
@@ -39,37 +42,42 @@ export const getKnownForJobs = (personality: Personality) => {
                 jobs.set(credit.job, newValue);
             }
         });
-        return Array.from(jobs.keys()).sort(
-            (a, b) => effectivePopularity(jobs.get(b)) - effectivePopularity(jobs.get(a))
-        );
     }
+
+    return Array.from(jobs.keys()).sort(
+        (a, b) => effectivePopularity(jobs.get(b)) - effectivePopularity(jobs.get(a))
+    );
+
 };
 
 export const getSetOfMovies = (personality: Personality) => {
     const moviePopularities = new Map<number, MovieData>();
-    
+
     if (personality.combined_credits.cast.length > 0) {
         personality.combined_credits.cast.forEach(role => {
             if (!role.title) return;
 
-            let newValue = moviePopularities.get(role.id) || {id: role.id, title: role.title, poster_path: role.poster_path, popularityDetails:{ count: 0, popularitySum: 0 }, jobs: new Set<string>(['Acting'])};
+            let newValue = moviePopularities.get(role.id) || { id: role.id, title: role.title, poster_path: role.poster_path, popularityDetails: { count: 0, popularitySum: 0 }, jobs: new Set<string>([ACTING]) };
             newValue.popularityDetails.count += 1;
             newValue.popularityDetails.popularitySum += role.popularity;
             moviePopularities.set(role.id, newValue);
         });
     }
+    
     if (personality.combined_credits.crew.length > 0) {
         personality.combined_credits.crew.forEach(credit => {
             if (credit.title && credit.job) {
-                let newValue = moviePopularities.get(credit.id) || {id: credit.id, title: credit.title, poster_path: credit.poster_path, popularityDetails:{ count: 0, popularitySum: 0 }, jobs: new Set<string>([credit.job])};
+                let newValue = moviePopularities.get(credit.id) || { id: credit.id, title: credit.title, poster_path: credit.poster_path, popularityDetails: { count: 0, popularitySum: 0 }, jobs: new Set<string>([credit.job]) };
                 newValue.popularityDetails.count += 1;
                 newValue.popularityDetails.popularitySum += credit.popularity;
                 newValue.jobs.add(credit.job);
                 moviePopularities.set(credit.id, newValue);
             }
         });
-        return Array.from(moviePopularities.values()).sort(
-            (a, b) => effectivePopularity(moviePopularities.get(b.id)?.popularityDetails) - effectivePopularity(moviePopularities.get(a.id)?.popularityDetails)
-        );
     }
+
+    return Array.from(moviePopularities.values()).sort(
+        (a, b) => effectivePopularity(moviePopularities.get(b.id)?.popularityDetails) - effectivePopularity(moviePopularities.get(a.id)?.popularityDetails)
+    );
+
 };
