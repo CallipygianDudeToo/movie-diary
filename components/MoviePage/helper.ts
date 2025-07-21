@@ -1,4 +1,5 @@
 import { Movie } from "@/types";
+import { crewJobs } from "../commonHelper";
 
 export const getDirectors = (movie: Movie) => {
     return movie.credits.crew
@@ -20,4 +21,15 @@ export const getFormattedAverage = (rating: number) => {
         return "No ratings available";
     }    
     return rating.toFixed(2);
+};
+
+export const getCrewMap = (movie: Movie) => {
+    const crewMap = new Map<string, typeof movie.credits.crew>();
+    movie.credits.crew
+        .forEach(member => {
+            if (crewJobs.has(member.job))
+                crewMap.get(member.job)?.push(member) || crewMap.set(member.job, [member]);
+        })
+
+    return crewMap;
 };

@@ -1,5 +1,5 @@
 import { Personality } from "@/types";
-import { ACTING } from "../commonHelper";
+import { ACTING, crewJobs } from "../commonHelper";
 
 interface PopularityData {
     count: number;
@@ -34,7 +34,7 @@ export const getKnownForJobs = (personality: Personality) => {
 
     if (personality.combined_credits.crew.length > 0) {
         personality.combined_credits.crew.forEach(credit => {
-            if (credit.title && credit.job) {
+            if (credit.title && credit.job && crewJobs.has(credit.job)) {
                 let newValue = jobs.get(credit.job) || { count: 0, popularitySum: 0 };
                 newValue.count += 1;
                 newValue.popularitySum += credit.popularity;
