@@ -27,23 +27,30 @@ body {
 
 @layer utilities {
   .mask-fade-bottom {
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   }
   .mask-fade-top {
-    -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 60%, transparent 100%);
     mask-image: linear-gradient(to top, black 60%, transparent 100%);
   }
   .mask-fade-right {
     -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
     mask-image: linear-gradient(to right, black 70%, transparent 100%);
   }
-
   .mask-fade-left {
     -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
     mask-image: linear-gradient(to left, black 70%, transparent 100%);
   }
 
+  .mask-light-fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+  .mask-light-fade-top {
+    -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+    mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  }
   .mask-light-fade-left {
     -webkit-mask-image: linear-gradient(to left, black 80%, transparent 100%);
     mask-image: linear-gradient(to left, black 80%, transparent 100%);
