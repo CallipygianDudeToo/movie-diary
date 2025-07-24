@@ -13,7 +13,7 @@ const NameCard = ({ name, character, id, job }: NameCardProps) => {
 
     return (
         <button
-            className={`relative group text-xs font-weight-400 m-1 px-2 py-1 w-fit text-gray-300 rounded-sm ${id ? 'hover:text-green-400' : ''}`}
+            className={`relative group text-xs font-weight-400 m-1 px-2 py-1 w-fit text-gray-300 rounded-sm ${id && 'hover:text-green-400'}`}
             style={{
                 backgroundColor: 'rgb(40,48,56)',
             }}
