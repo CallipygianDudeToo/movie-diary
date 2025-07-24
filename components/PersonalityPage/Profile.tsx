@@ -44,7 +44,7 @@ const ProfileImage = ({ personality, filterOnJob }: PersonalityWithFilterProps) 
 const ProfileKnownFor = ({ setFilterOnJob, jobs }: PersonalityWithFilterJobsProps) => {
     return (
         <div className='w-1/3 flex flex-col items-center mt-16'>
-            <h1 className='font-bold text-xl mb-3 font-georgia'>Filter On:</h1>
+            <h1 className='font-bold text-xl mb-3'>Filter On:</h1>
             {jobs.map(job => {
                 return (
                     <button key={job} className="text-base hover:text-blue-400" onClick={() => setFilterOnJob(job)}>
