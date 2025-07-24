@@ -1,6 +1,6 @@
 import React from 'react';
 import { MovieProps } from './MovieProps';
-import { getFormattedAverage, getFormattedRuntime, getReleaseYear } from './helper';
+import { getReleaseYear } from './helper';
 import Directors from './Directors';
 
 const MovieDetails = ({ movie }: MovieProps) => {
@@ -20,13 +20,8 @@ const MovieDetails = ({ movie }: MovieProps) => {
                     <span className="text-base mr-1 text-gray-400">directed by</span>
                     <Directors movie={movie} />
                 </div>
-                {/* <div className="flex items-center mb-2">
-                    <span className="text-base mr-2"> {getFormattedRuntime(movie.runtime)}</span>
-                    <span className="text-base mr-2"> • ⭐ {getFormattedAverage(movie.vote_average)}</span>
-                </div> */}
-                {/*TODO: Figure out new place to show them*/}
-                {movie.tagline && <span className="italic text-gray-400" style={{ fontFamily: 'Georgia, serif' }}>{movie.tagline}</span>}
-                <p className="text-base text-gray-200 drop-shadow-lg" style={{ fontFamily: 'Georgia, serif' }}>{movie.overview}</p>
+                {movie.tagline && <span className="italic text-gray-400 font-georgia">{movie.tagline}</span>}
+                <p className="text-base text-gray-200 drop-shadow-lg font-georgia">{movie.overview}</p>
             </div>
         </div>
     )

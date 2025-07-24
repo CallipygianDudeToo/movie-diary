@@ -13,17 +13,16 @@ interface JobCardProps {
 };
 
 const JobCard = ({ job, people }: JobCardProps) => {
-    return (<div className='flex flex-wrap w-full items-center'>
-        <span
-            className="text-base mr-1 text-gray-300"
-            style={{ fontFamily: 'Georgia, serif' }}
-        >
-            {`${job}:`}
-        </span>
-        {people.map(person =>
-                <NameCard name={person.name} id={person.id} job={person.job} />
-        )}
-    </div>)
+    return (
+        <div className='flex flex-wrap w-full items-center'>
+            <span className="text-base mr-1 text-gray-300 font-georgia">
+                {`${job}:`}
+            </span>
+            {people.map(person =>
+                <NameCard key={person.id} name={person.name} id={person.id} job={person.job} />
+            )}
+        </div>
+    )
 };
 
 export default JobCard;

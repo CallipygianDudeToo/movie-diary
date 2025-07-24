@@ -14,7 +14,7 @@ const Profile = ({ personality, filterOnJob, setFilterOnJob, jobs }: Personality
 const ProfileBiography = ({ personality }: PersonalityProps) => {
     return (
         <div className='w-1/3 mt-16 overflow-y-auto max-h-[24rem] profile-bio-scrollbar pr-2'>
-            <p className="text-base text-gray-300 pl-15" style={{ fontFamily: 'Georgia, serif' }}>
+            <p className="text-base text-gray-300 pl-15 font-georgia">
                 {personality.biography ? personality.biography : `The first rule of ${personality.name} is: you do not talk about ${personality.name}.`}
             </p>
         </div>
@@ -43,8 +43,8 @@ const ProfileImage = ({ personality, filterOnJob }: PersonalityWithFilterProps) 
 
 const ProfileKnownFor = ({ setFilterOnJob, jobs }: PersonalityWithFilterJobsProps) => {
     return (
-        <div className='w-1/3 flex flex-col items-center mt-16' style={{ fontFamily: 'Georgia, serif' }}>
-            <h1 className='font-bold text-xl mb-3'>Filter On:</h1>
+        <div className='w-1/3 flex flex-col items-center mt-16'>
+            <h1 className='font-bold text-xl mb-3 font-georgia'>Filter On:</h1>
             {jobs.map(job => {
                 return (
                     <button key={job} className="text-base hover:text-blue-400" onClick={() => setFilterOnJob(job)}>

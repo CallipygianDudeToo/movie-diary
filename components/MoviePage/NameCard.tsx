@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 interface NameCardProps {
     name: string;
     character?: string;
-    id: number;
-    job: string;
+    id?: number;
+    job?: string;
 };
 
 const NameCard = ({ name, character, id, job }: NameCardProps) => {
@@ -13,11 +13,13 @@ const NameCard = ({ name, character, id, job }: NameCardProps) => {
 
     return (
         <button
-            className="relative group text-xs font-weight-400 m-1 px-2 py-1 w-fit text-gray-300 rounded-sm hover:text-green-400"
+            className={`relative group text-xs font-weight-400 m-1 px-2 py-1 w-fit text-gray-300 rounded-sm ${id ? 'hover:text-green-400' : ''}`}
             style={{
                 backgroundColor: 'rgb(40,48,56)',
             }}
             onClick={() => {
+                if(!id || !job) return;
+
                 router.push(`/personality/${id}`)
                 window.sessionStorage.setItem(`personality`, JSON.stringify({ id, job }));
             }}
