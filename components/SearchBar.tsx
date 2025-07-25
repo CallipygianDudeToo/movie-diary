@@ -18,11 +18,13 @@ const SearchBar = () => {
     const clickHandler = () => {
         if (!showInput) {
             setShowInput(true);
-            inputRef.current?.focus();
-        } else if (value.trim()) {
-            router.push(`/search/${value}`);
+            // inputRef.current?.focus();
+        } else {
             setShowInput(false);
-            setValue('');
+            if (value.trim()) {
+                router.push(`/search/${value}`);
+                setValue('');
+            }
         }
     }
 

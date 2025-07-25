@@ -14,13 +14,15 @@ interface JobCardProps {
 
 const JobCard = ({ job, people }: JobCardProps) => {
     return (
-        <div className='flex flex-wrap w-full items-center'>
-            <span className="text-base mr-1 text-gray-300 font-georgia">
+        <div className='flex flex-row items-start'>
+            <span className="text-base mr-1 mt-1 text-gray-300 font-georgia w-fit whitespace-nowrap">
                 {`${job}:`}
             </span>
-            {people.map(person =>
-                <NameCard key={person.id} name={person.name} id={person.id} job={person.job} />
-            )}
+            <div className='flex flex-wrap'>
+                {people.map(person =>
+                    <NameCard key={person.id} name={person.name} id={person.id} job={person.job} />
+                )}
+            </div>
         </div>
     )
 };
