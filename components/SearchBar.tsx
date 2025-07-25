@@ -18,7 +18,6 @@ const SearchBar = () => {
     const clickHandler = () => {
         if (!showInput) {
             setShowInput(true);
-            // inputRef.current?.focus();
         } else {
             setShowInput(false);
             if (value.trim()) {

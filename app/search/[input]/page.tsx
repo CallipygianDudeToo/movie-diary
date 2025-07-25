@@ -1,4 +1,7 @@
 import { ErrorPage } from '@/components';
+import SearchPage from '@/components/SearchPage/SearchPage';
+import { fetchSearchResults } from '@/lib/tmdb';
+import { SearchResults } from '@/types';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -9,9 +12,9 @@ interface SearchPageProps {
 export async function generateMetadata(props: SearchPageProps): Promise<Metadata> {
     try {
         const params = await props.params;
-        // const personality: Personality = await fetchPersonalityById(params.id);
+        
         return {
-            title: 'Search'//`${personality.name}`,
+            title: `Search: ${params.input}`,
         };
     } catch (e) {
         return {
@@ -23,11 +26,10 @@ export async function generateMetadata(props: SearchPageProps): Promise<Metadata
 export default async function Page(props: SearchPageProps) {
   try {
         const params = await props.params;
-        // const personality: Personality = await fetchPersonalityById(params.id);
+        const searchResults: SearchResults = await fetchSearchResults(params.input);
         
         return (
-            // <PersonalityPage personality={personality} />
-            <div>{`SearchPage ${params.input}`}</div>
+            <SearchPage searchResults={searchResults}/>
         );
     } catch (e) {
         console.error(e);
