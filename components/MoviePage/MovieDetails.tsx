@@ -2,14 +2,15 @@ import React from 'react';
 import { MovieProps } from './MovieProps';
 import { getReleaseYear } from './helper';
 import Directors from './Directors';
+import Poster from '../Poster';
 
 const MovieDetails = ({ movie }: MovieProps) => {
     return (
         <div className="relative z-20 flex items-top justify-center px-[20rem] w-full h-full -mt-20">
-            <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="rounded-lg shadow-2xl h-60 mr-4"
+            <Poster
+                poster_path={movie.poster_path}
+                title={movie.title}
+                addClassName='mr-4'
             />
             <div className="text-white max-w-2xl ml-4">
                 <div className="flex items-baseline mb-2">
