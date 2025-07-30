@@ -1,15 +1,6 @@
 import { Movie, Result } from "@/types";
 import { crewJobs } from "../commonHelper";
 
-export const getDirectors = (movie: Movie) => {
-    return movie.credits.crew
-        .filter(member => member.job === 'Director')
-};
-
-export const getReleaseYear = (movie: Movie | Result) => {
-    return Number(movie.release_date?.split('-')[0]);
-};
-
 export const getFormattedRuntime = (runtime: number) => {
     const hours = Math.floor(runtime / 60);
     const minutes = runtime % 60;

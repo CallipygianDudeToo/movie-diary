@@ -1,12 +1,20 @@
 "use client";
 
 import React from 'react'
-import { MovieProps } from './MovieProps';
-import { getDirectors } from './helper';
 import { useRouter } from 'next/navigation';
 
-const Directors = ({ movie }: MovieProps) => {
-    const directors = getDirectors(movie);
+interface DirectorsProps {
+    directors: Array<{
+        id: number;
+        name: string;
+        department: string;
+        job: string;
+        profile_path: string | null;
+    }
+    >;
+}
+
+const Directors = ({ directors }: DirectorsProps) => {
     const router = useRouter();
     return (
         <>

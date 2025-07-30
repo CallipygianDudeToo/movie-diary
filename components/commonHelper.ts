@@ -1,3 +1,5 @@
+import { Credits, Movie, Result } from "@/types";
+
 export const ACTING = 'Acting';
 
 export const crewJobsList = [
@@ -30,3 +32,12 @@ export const crewJobsList = [
 ]
 
 export const crewJobs = new Set<string>(crewJobsList);
+
+export const getDirectors = (credits: Credits) => {
+    return credits.crew
+        .filter(member => member.job === 'Director')
+};
+
+export const getReleaseYear = (movie: Movie | Result) => {
+    return Number(movie.release_date?.split('-')[0]);
+};
