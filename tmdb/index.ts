@@ -34,7 +34,7 @@ export async function fetchPersonalityById(id: string): Promise<Personality> {
 	return await res.json();
 }
 
-export async function fetchSearchResults(input: string, page: number = 1): Promise<SearchResults> {
+export async function fetchSearchResults(input: string, page: string): Promise<SearchResults> {
 	const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${input}&page=${page}`, {
 		method: 'GET',
 		headers: {
@@ -63,7 +63,8 @@ export async function fetchDirectorsByMovieId(id: string): Promise<Credits> {
 	});
 
 	if (!res.ok) {
-		throw new Error('Failed to fetch personality');
+		console.log(res.status, res.statusText);
+		throw new Error('Failed to fetch directors');
 	}
 
 	return await res.json();

@@ -1,5 +1,5 @@
 import React from 'react';
-import NameCard from './NameCard';
+import NameCard from '../NameCard';
 
 interface JobCardProps {
     job: string;

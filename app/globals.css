@@ -93,3 +93,11 @@ body {
 .font-arial {
 	font-family: Arial, Helvetica, sans-serif;
 }
+
+.clickable {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.clickable:hover {
+  color: #05df72;
+}

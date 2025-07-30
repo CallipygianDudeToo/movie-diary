@@ -1,6 +1,6 @@
 import React from 'react';
 import { MovieProps } from './MovieProps';
-import NameCard from './NameCard';
+import NameCard from '../NameCard';
 import { ACTING } from '../commonHelper';
 
 const Cast = ({ movie }: MovieProps) => {

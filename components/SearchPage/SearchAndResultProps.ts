@@ -1,9 +1,13 @@
 import { Result, SearchResults } from "@/types";
 
-export type SearchProps = {
+export interface SearchProps {
     searchResults: SearchResults;
 };
 
-export type ResultProps = {
+export interface SearchWithInputProps extends SearchProps {
+    input: string;
+};
+
+export interface ResultProps {
     result: Result;
 }

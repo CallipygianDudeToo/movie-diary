@@ -1,7 +1,7 @@
 import React from 'react';
 import { MovieProps } from './MovieProps';
 import { getFormattedAverage, getFormattedRuntime } from './helper';
-import NameCard from './NameCard';
+import NameCard from '../NameCard';
 
 const DetailsGenres = ({ movie }: MovieProps) => {
 	return (
