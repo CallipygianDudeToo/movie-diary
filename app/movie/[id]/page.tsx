@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { fetchMovieById } from '@/lib';
+import { fetchMovieById } from '@/tmdb';
 import type { Movie } from '@/types';
 import { ErrorPage, MoviePage } from '@/components';
 

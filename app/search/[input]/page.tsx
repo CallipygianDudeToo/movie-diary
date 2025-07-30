@@ -1,6 +1,6 @@
 import { ErrorPage } from '@/components';
 import SearchPage from '@/components/SearchPage/SearchPage';
-import { fetchSearchResults } from '@/lib/tmdb';
+import { fetchSearchResults } from '@/tmdb';
 import { SearchResults } from '@/types';
 import { Metadata } from 'next';
 import React from 'react';

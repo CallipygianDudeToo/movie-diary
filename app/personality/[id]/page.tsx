@@ -1,5 +1,5 @@
 import { ErrorPage, PersonalityPage } from '@/components';
-import { fetchPersonalityById } from '@/lib';
+import { fetchPersonalityById } from '@/tmdb';
 import { Personality } from '@/types';
 import { Metadata } from 'next';
 import React from 'react';
