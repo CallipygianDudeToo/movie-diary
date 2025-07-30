@@ -29,5 +29,4 @@ export const crewJobsList = [
     // TO-DO: Add more jobs if needed like 'Production Design', 'Visual Effects', 'Costume Design', etc.
 ]
 
-
 export const crewJobs = new Set<string>(crewJobsList);

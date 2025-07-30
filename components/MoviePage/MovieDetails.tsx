@@ -3,6 +3,7 @@ import { MovieProps } from './MovieProps';
 import { getReleaseYear } from './helper';
 import Directors from './Directors';
 import Poster from '../Poster';
+import MovieTitleAndYear from '../MovieTitleAndYear';
 
 const MovieDetails = ({ movie }: MovieProps) => {
     return (
@@ -13,10 +14,7 @@ const MovieDetails = ({ movie }: MovieProps) => {
                 addClassName='mr-4'
             />
             <div className="text-white max-w-2xl ml-4">
-                <div className="flex items-baseline mb-2">
-                    <h1 className="text-3xl font-bold mr-2 drop-shadow-lg">{movie.title}</h1>
-                    <span className="text-lg font-semibold text-gray-300">{getReleaseYear(movie)}</span>
-                </div>
+                <MovieTitleAndYear title={movie.title} year={getReleaseYear(movie)} />
                 <div className="flex items-center mt-2 mb-6">
                     <span className="text-base mr-1 text-gray-400">directed by</span>
                     <Directors movie={movie} />

@@ -87,5 +87,9 @@ body {
 }
 
 .font-georgia {
-	font-family: 'Georgia, serif'
+	font-family: Georgia, serif;
+}
+
+.font-arial {
+	font-family: Arial, Helvetica, sans-serif;
 }

@@ -1,4 +1,4 @@
-import { Movie } from "@/types";
+import { Movie, Result } from "@/types";
 import { crewJobs } from "../commonHelper";
 
 export const getDirectors = (movie: Movie) => {
@@ -6,8 +6,8 @@ export const getDirectors = (movie: Movie) => {
         .filter(member => member.job === 'Director')
 };
 
-export const getReleaseYear = (movie: Movie) => {
-    return movie.release_date.split('-')[0];
+export const getReleaseYear = (movie: Movie | Result) => {
+    return Number(movie.release_date?.split('-')[0]);
 };
 
 export const getFormattedRuntime = (runtime: number) => {
