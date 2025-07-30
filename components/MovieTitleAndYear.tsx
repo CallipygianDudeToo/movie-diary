@@ -19,7 +19,7 @@ const MovieTitleAndYear = ({ title, year, id } : MovieTitleAndYearProps) => {
     return (
         <div className="flex items-baseline mb-2">
             <h1 
-                className={`text-3xl font-bold mr-2 drop-shadow-lg ${id && 'hover:text-green-400 hover:cursor-pointer'}`}
+                className={`text-3xl text-white font-bold mr-2 drop-shadow-lg ${id && 'hover:text-green-400 hover:cursor-pointer'}`}
                 onClick={handleTitleClick}
                 >
                     {title}

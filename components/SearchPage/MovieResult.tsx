@@ -6,20 +6,20 @@ import { fetchDirectorsByMovieId } from '@/tmdb';
 import { getDirectors, getReleaseYear } from '../commonHelper';
 import Directors from '../Directors';
 
-const MovieResult = async ({ result } : ResultProps) => {
+const MovieResult = async ({ result }: ResultProps) => {
     const credits = await fetchDirectorsByMovieId(result.id.toString());
-    
+
     return (
-        <div className='flex flex-row m-4 p-4 bg-gray-800 rounded-lg font-arial'>
+        <div className='flex flex-row m-4 p-4 rounded-lg font-arial bg-gray-900 hover:bg-gray-800 transition-colors duration-100'>
             <Poster poster_path={result.poster_path} title={result.title} />
             <div className='flex flex-col m-4'>
-                <MovieTitleAndYear title={result.title} year={getReleaseYear(result)} id={result.id}/>
-                <div className="flex items-center mt-2 mb-6">
+                <MovieTitleAndYear title={result.title} year={getReleaseYear(result)} id={result.id} />
+                <div className="flex items-center mb-6">
                     <span className="text-base mr-1 text-gray-400">directed by</span>
-                    <Directors directors={getDirectors(credits)} /> 
+                    <Directors directors={getDirectors(credits)} />
                 </div>
                 <p className='text-md font-georgia'>{result.overview}</p>
-                </div>
+            </div>
         </div>
     )
 };

@@ -21,7 +21,7 @@ const Directors = ({ directors }: DirectorsProps) => {
             {directors.map((director, idx) => (
                 <React.Fragment key={director.id}>
                     <button
-                        className="text-base font-bold hover:text-green-400"
+                        className="text-white font-bold hover:text-green-400"
                         onClick={() => {
                             router.push(`/personality/${director.id}`)
                             window.sessionStorage.setItem(`personality`, JSON.stringify({ id: director.id, job: 'Director' }));
